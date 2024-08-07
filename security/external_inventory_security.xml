@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Grupo para usuarios externos -->
+        <record id="group_external_user" model="res.groups">
+            <field name="name">External User</field>
+            <field name="category_id" ref="base.module_category_inventory"/>
+        </record>
+    </data>
+</odoo>

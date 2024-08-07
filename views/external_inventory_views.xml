@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Vista de inventario para usuarios externos -->
+    <record id="view_stock_quant_tree_external" model="ir.ui.view">
+        <field name="name">stock.quant.tree.external</field>
+        <field name="model">stock.quant</field>
+        <field name="arch" type="xml">
+            <tree string="Inventory">
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <field name="quantity"/>
+                <field name="reserved_quantity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_stock_quant_external" model="ir.actions.act_window">
+        <field name="name">Inventory</field>
+        <field name="res_model">stock.quant</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="external_inventory_view.view_stock_quant_tree_external"/>
+        <field name="target">main</field>
+    </record>
+
+    <menuitem id="menu_external_inventory_root" name="External Inventory" sequence="10" groups="external_inventory_view.group_external_user"/>
+    <menuitem id="menu_external_inventory" name="Inventory" parent="menu_external_inventory_root" action="external_inventory_view.action_stock_quant_external" sequence="10" groups="external_inventory_view.group_external_user"/>
+</odoo>
